@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TS using script type ts</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Welcome to TypeScript</h1>
+      <p id="message">Loading...</p>
+      <button id="btn">Click Me</button>
+    </div>
+
+    <!-- Load TypeScript compiler -->
+    <script src="https://cdn.jsdelivr.net/npm/typescript@5.9.3/lib/typescript.js"></script>
+
+    <!-- TS Script -->
+    <script type="text/typescript" id="my-ts">
+      const msgEle = document.getElementById("message") as HTMLParagraphElement;
+      const btnEle = document.getElementById("btn") as HTMLButtonElement;
+      let count: number = 0;
+      btnEle.addEventListener("click", () => {
+        count += 5;
+        msgEle.innerText = `Clicked ${count} times`;
+      });
+
+      interface User {
+        name: string;
+        age: number;
+      }
+
+      enum Color {
+        Red = "Red",
+        Green = "Green",
+        Blue = "Blue",
+      }
+
+      const user: User = {
+        name: "John",
+        age: 30,
+        eyeColor: Color.Blue, // This will cause a TypeScript error since 'eyeColor' is not defined in the User interface
+      }
+
+      console.log(user);
+    </script>
+
+    <!-- TypeScript compiler and executor -->
+    <script>
+      const tsCode = document.getElementById("my-ts").textContent;
+
+      const result = ts.transpileModule(tsCode, {
+        compilerOptions: {
+          target: ts.ScriptTarget.ES2022,
+          module: ts.ModuleKind.None,
+        },
+        reportDiagnostics: true,
+      });
+
+      const script = document.createElement("script");
+      script.textContent = result.outputText;
+
+      document.body.appendChild(script);
+    </script>
+  </body>
+</html>

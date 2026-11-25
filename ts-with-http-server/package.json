@@ -1,0 +1,27 @@
+{
+  "name": "ts-all-you-need-to-know",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev:ts": "tsc --watch",
+    "dev:server": "http-server . -p 3000 -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BB-Simon/ts-all-you-need-to-know.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BB-Simon/ts-all-you-need-to-know/issues"
+  },
+  "homepage": "https://github.com/BB-Simon/ts-all-you-need-to-know#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "typescript": "^7.0.2"
+  }
+}
