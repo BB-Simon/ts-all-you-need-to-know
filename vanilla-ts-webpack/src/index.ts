@@ -1,7 +1,7 @@
 import "./styles/style.css";
 
-import { getUsers } from "./service/user.service";
-import { formatName } from "./utils/helpers";
+import { getUsers } from "@/service/user.service";
+import { formatName } from "@/utils/helpers";
 
 const messageElement = document.querySelector<HTMLParagraphElement>("#message");
 
@@ -26,7 +26,7 @@ if (usersElement) {
 let count: number = 0;
 
 buttonElement?.addEventListener("click", () => {
-  count++;
+  count += 5;
 
   if (messageElement) {
     messageElement.textContent = `Clicked ${count} times`;

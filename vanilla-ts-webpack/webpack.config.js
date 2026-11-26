@@ -18,9 +18,9 @@ export default {
 
   resolve: {
     extensions: [".ts", ".js"],
-    // alias: {
-    //   "@*": path.resolve(__dirname, "src/*"),
-    // },
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
   },
 
   module: {
@@ -47,7 +47,7 @@ export default {
     static: "/dist",
     port: 3000,
     open: true,
-    hot: false,
-    liveReload: true,
+    hot: true,
+    // liveReload: true,
   },
 };
